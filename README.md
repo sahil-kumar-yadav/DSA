@@ -1,6 +1,6 @@
 
 
-# Data Structures and Algorithms Notes
+# [Data Structures and Algorithms Notes](https://www.linkedin.com/in/sahil-kumar-yadav/) 
 
 This repository contains my notes and implementations of various Data Structures and Algorithms topics in C++.
 
