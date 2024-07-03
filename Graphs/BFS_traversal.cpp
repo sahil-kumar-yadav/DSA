@@ -32,7 +32,6 @@ public:
         }
     }
 
- 
     void bfs(int src)
     {
         queue<int> q;
@@ -55,22 +54,36 @@ public:
         }
     }
 
+    void dfs(int src)
+    {
 
-
-
+        if (!visited[src])
+        {
+            visited[src] = true;
+            cout << src << " ";
+            for (auto nbr : adjList[src])
+            {
+                dfs(nbr);
+                visited[nbr] = true;
+            }
+        }
+    }
 };
 
 int main()
 {
     Graph g;
-    g.addEdge(0, 1);
     g.addEdge(0, 5);
+    g.addEdge(0, 1);
     g.addEdge(1, 2);
     g.addEdge(2, 3);
     g.addEdge(3, 4);
     g.addEdge(4, 5);
-    // g.printList();
-    g.bfs(0);
+    g.printList();
+    // cout<<"bfs traversal "<<endl;
+    // g.bfs(0);
+    cout << "dfs traversal " << endl;
+    g.dfs(0);
 
     return 0;
 }
