@@ -44,15 +44,45 @@ int main(){
 }
 ```
 
+# Pre Order Traversal
 
 ```cpp
+void preOrderTraversal(Node *root){
+    if(!root)
+        return ;
 
+    // LCR
+    preOrderTraversal(root->left);
+    cout<<root->data<<" ";
+    preOrderTraversal(root->right);
+}
 ```
 
-```cpp
+# In Order Traversal
 
-```
 ```cpp
+void InOrderTraversal(Node *root){
+    if(!root)
+        return ;
+
+    // CLR
+    cout<<root->data<<" ";
+    InOrderTraversal(root->left);
+    InOrderTraversal(root->right);
+}
+```
+
+# Post Order Traversal
+```cpp
+void PostOrderTraversal(Node *root){
+    if(!root)
+        return ;
+
+    // LRC
+    PostOrderTraversal(root->left);
+    PostOrderTraversal(root->right);
+    cout<<root->data<<" ";
+}
 
 ```
 
