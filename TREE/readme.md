@@ -113,8 +113,17 @@ void LevelOrder(Node *root)
 
 ```
 
+# height of tree
 ```cpp
+int height(Node *root){
+    if(!root){
+        return 0;
+    }
+    int leftHeight = height(root->left);
+    int rightHeight = height(root->right);
 
+    return max(leftHeight,rightHeight) + 1;
+}
 ```
 
 ```cpp
