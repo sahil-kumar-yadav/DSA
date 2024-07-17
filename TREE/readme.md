@@ -168,6 +168,55 @@ int height(Node *root){
     return max(leftHeight,rightHeight) + 1;
 }
 ```
+# Diameter of tree
+```cpp
+int diameter(Node* root) {
+
+        if (root == NULL) {
+            return 0;
+        }
+
+        // ya to diameter left my hoga
+        // ya fir right my
+        // ya fir left + root + right milleke
+
+        int opt1 = diameter(root->left);
+        int opt2 = diameter(root->right);
+        int opt3 = height(root->left) + 1 + height(root->right);
+        int ans = max(opt1, max(opt2, opt3)); // maximum of 3
+
+        return ans-1; // -1 for edges 
+    }
+
+```
+# check balance tree or not
+```cpp
+
+
+bool isBalanced(Node *root)
+{
+    // tree is balanced if height of left and right is differ by one
+
+    if (root == NULL)
+    {
+        return true;
+    }
+
+    int leftHeight = height(root->left);
+    int rightHeight = height(root->right);
+
+    if (abs(leftHeight - rightHeight) > 1)
+    {
+        return false;
+    }
+
+    bool leftAns = isBalanced(root->left);
+    bool rightAns = isBalanced(root->right);
+
+    return (leftAns && rightAns);
+}
+
+```
 
 ```cpp
 
