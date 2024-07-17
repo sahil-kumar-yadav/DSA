@@ -112,6 +112,49 @@ void LevelOrder(Node *root)
 }
 
 ```
+# level Order Traversal In new Line
+-  after first level push null for new line
+- and if q not empty and front node is null that means lvl complete , so push NULL
+
+```cpp
+void LevelOrder(Node *root)
+{
+    queue<Node *> q;
+
+    q.push(root);
+    q.push(NULL);
+
+    while (!q.empty())
+    {
+
+        Node *frontNode = q.front();
+        q.pop();
+        if (frontNode == NULL)
+        {
+            cout << endl;
+            if (!q.empty())
+            {
+                q.push(NULL);
+            }
+        }
+        else
+        {
+
+            cout << frontNode->data << " ";
+            if (frontNode->left != NULL)
+            {
+                q.push(frontNode->left);
+            }
+            if (frontNode->right != NULL)
+            {
+                q.push(frontNode->right);
+            }
+        }
+    }
+}
+
+
+```
 
 # height of tree
 ```cpp
