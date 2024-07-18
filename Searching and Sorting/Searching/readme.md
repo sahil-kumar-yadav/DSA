@@ -1,0 +1,6 @@
+# Binary Search
+
+```cpp
+
+
+```
