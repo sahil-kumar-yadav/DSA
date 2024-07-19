@@ -151,12 +151,82 @@ bool searchInBST(Node *root,int target){
 
 
 ```
-
+# Maximum and minimum in BST
 ```cpp
+int findMaximumItrative(Node *root){
+
+    if(root == nullptr){
+        cout<<"tree empty "<<endl;
+        return -1;
+    }
+
+    // iterate to right till right exist
+
+    Node *temp = root;
+    while(temp->right){
+        temp = temp->right;
+    }
+
+    
+    return temp->data;
+}
+
+
+```
+```cpp
+int findMinimumItrative(Node *root){
+
+    if(root == nullptr){
+        cout<<"tree empty "<<endl;
+        return -1;
+    }
+
+    // iterate to right till right exist
+
+    Node *temp = root;
+    while(temp->left){
+        temp = temp->left;
+    }
+
+    return temp->data;
+}
+
+```
+```cpp
+int findMaximumRecursive(Node *root){
+    int ans = 0;
+    if(root == NULL){
+        return 0;
+    }
+
+    if(root->right){
+        ans = findMaximumRecursive(root->right);
+    }
+    else{
+        ans =  root->data;
+    }
+
+    return ans;
+}
 
 ```
 
 ```cpp
+int findMinimumRecusive(Node *root){
+    int ans = 0;
+    if(root == NULL){
+        return 0;
+    }
+
+    if(root->left){
+        ans = findMinimumRecusive(root->left);
+    }
+    else{
+        ans =  root->data;
+    }
+
+    return ans;
+}
 
 ```
 
