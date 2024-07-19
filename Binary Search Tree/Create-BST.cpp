@@ -92,11 +92,12 @@ void LevelOrder(Node *root)
 int main()
 {
     Node *root = NULL;
-    cout<<"Enter the data for Node "<<endl;
+    cout << "Enter the data for Node " << endl;
     takeInput(root);
 
-    cout<<"printing the tree "<<endl;
+    cout << "printing the tree " << endl;
     LevelOrder(root);
 
     return 0;
 }
+
