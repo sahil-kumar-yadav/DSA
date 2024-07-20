@@ -34,6 +34,7 @@ This repository contains my notes and implementations of various Data Structures
 - Algorithms (Sorting, Searching, etc.)
 
 ### Basic Maths
+- pow(x,n)
 - Prime Numbers
 - Factorization
 - GCD (Greatest Common Divisor)
