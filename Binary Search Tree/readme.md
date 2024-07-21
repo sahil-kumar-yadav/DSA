@@ -230,7 +230,36 @@ int findMinimumRecusive(Node *root){
 
 ```
 
+# validate BST 
 ```cpp
+ // 100 50 25 -1 -1 75 -1 -1 150 125 -1 -1 200 -1 -1 // valid
+    // 100 250 25 -1 -1 75 -1 -1 150 125 -1 -1 200 -1 -1 // invalid
+bool validateBST(Node *root,int lowerbound,int upperbound){
+    if(root == NULL){
+        return true;
+    }
+
+    if(root->data < upperbound && root->data > lowerbound){
+        // uppernode uperbound
+        // root node --> lowerbound <  data   < upperbound 
+        // lower node lowebound
+        // sabh sahi hai
+
+        // left side my ja rahe hai upperbound update karna padega
+        bool leftans = validateBST(root->left,lowerbound,root->data);
+        // right side my ja rahe hai lowerbound update karna padega
+        bool rightans = validateBST(root->right,root->data,upperbound);
+
+        return (leftans && rightans) ;
+    }
+    else{
+        // valid nahi
+        return false;
+    }
+
+
+}
+
 
 ```
 
