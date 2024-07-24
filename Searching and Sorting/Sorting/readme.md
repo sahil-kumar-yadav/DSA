@@ -1,9 +1,12 @@
+$${\color{white}W}$$
+
 # Bubble Sort
 
 - key idea is swap consecutive if they are in wrong order
 - so in first order largest element will be pushed to end of array
 
-![alt text](image-4.png)
+
+![#f03c15](image-4.png)
 
 ```cpp
 
@@ -20,22 +23,32 @@ void bubbleSort(int arr[], int n)
     for (int i = n - 1; i >= 1; i--)
     {
         // 0 sy i tak
+
+        // optimization - if no swap happens then array is sorted
+        bool swapFlag = false;
         for (int j = 0; j <= i - 1; j++)
         {
             if (arr[j] > arr[j + 1])
             {
                 // wrong order
                 swap(arr[j], arr[j + 1]);
+                swapFlag = true; // swapping happend
             }
+        }
+
+        if (!swapFlag)
+        {
+            break;
         }
     }
 }
+
 
 ```
 
 # Insertion Sort
 
-![alt text](image-1.png)
+![#f03c15](image-1.png)
 
 ```cpp
 

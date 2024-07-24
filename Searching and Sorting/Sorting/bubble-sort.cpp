@@ -24,13 +24,22 @@ void bubbleSort(int arr[], int n)
     for (int i = n - 1; i >= 1; i--)
     {
         // 0 sy i tak
+
+        // optimization - if no swap happens then array is sorted
+        bool swapFlag = false;
         for (int j = 0; j <= i - 1; j++)
         {
             if (arr[j] > arr[j + 1])
             {
                 // wrong order
                 swap(arr[j], arr[j + 1]);
+                swapFlag = true; // swapping happend
             }
+        }
+
+        if (!swapFlag)
+        {
+            break;
         }
     }
 }
