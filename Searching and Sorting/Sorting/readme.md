@@ -1,10 +1,41 @@
 # Bubble Sort
 
+- key idea is swap consecutive if they are in wrong order
+- so in first order largest element will be pushed to end of array
+
+![alt text](image-4.png)
+
 ```cpp
+
+void bubbleSort(int arr[], int n)
+{
+
+    // phele baar my 0 sy n-1 tak ja rahe hai
+    // second time 0 - n-2
+    // ..
+    // 0 - 1
+
+    // so we are going n-1 to 1
+
+    for (int i = n - 1; i >= 1; i--)
+    {
+        // 0 sy i tak
+        for (int j = 0; j <= i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                // wrong order
+                swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
+}
 
 ```
 
 # Insertion Sort
+
+![alt text](image-1.png)
 
 ```cpp
 
@@ -43,14 +74,22 @@ void selectionSort(int arr[], int n)
 ```
 
 # Quick Sort
+
+![alt text](image-2.png)
+
 ```cpp
 
 ```
 
 # Heap Sort
+
+![alt text](image-3.png)
+
 ```cpp
 
 ```
+
+# merge Sort
 
 ```cpp
 
