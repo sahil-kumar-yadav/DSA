@@ -90,10 +90,32 @@ int findUniqueHashing(int a[], int n, int k)
     return ans;
 }
 ```
-
-
-
+## Sort Zeros and Ones 
 ```cpp
+void sortZeroAndOne(int arr[], int n)
+{
+    int i = 0, j = n - 1;
+
+    while (i < j)
+    {
+        // cout<<i<<" "<<j<<endl;
+        bool cond1 = (arr[i] == 0);
+        bool cond2 = (arr[j] == 1);
+        if (cond1)
+        { // sahi jagh py hai
+            i++;
+        }
+        if(cond2){
+            j--;
+        }
+        
+        if(!cond1 && !cond2){
+            cout<<" cond"<<endl;
+            swap(arr[i],arr[j]);
+        }
+    }
+    
+}
 
 ```
 
