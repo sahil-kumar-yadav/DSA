@@ -47,3 +47,8 @@
 # Namespace 
 - used to organize code into logical groups and to prevent name collisions that can occur especially when your code base includes multiple libraries
 - Example, you might be writing some code that has a function called xyz() and there is another library available which is also having same function xyz(). Now the compiler has no way of knowing which version of xyz()
+
+
+# Loops
+
+![loops](image-3.png)
