@@ -1,5 +1,3 @@
-$${\color{white}W}$$
-
 # Bubble Sort
 
 - key idea is swap consecutive if they are in wrong order
@@ -51,6 +49,30 @@ void bubbleSort(int arr[], int n)
 ![#f03c15](image-1.png)
 
 ```cpp
+
+
+void InsertionSort(int arr[], int n)
+{
+    // pick each and every element
+    for (int i = 0; i <= n - 1; i++)
+    {
+        for (int j = i; j > 0; j--)
+        {
+            // piche ki or jana hai
+            if (arr[j - 1] > arr[j])
+            {
+                // swap
+                swap(arr[j - 1], arr[j]);
+            }
+            else
+            {
+                // sabh correct order my hai no need to go more back
+                break;
+            }
+        }
+    }
+}
+
 
 ```
 
