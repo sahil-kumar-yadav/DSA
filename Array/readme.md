@@ -169,9 +169,32 @@ void moveNegative(int arr[], int n)
 
 ```
 
-
+# find duplicates
 
 ```cpp
+void findDuplicate_ByNegativeMarking(int arr[], int n)
+{
+    // vector<int>ans;
+        int n = arr.size();
+        for (int i = 0; i < n; i++) {
+            int index = abs(arr[i]) - 1; // -1 bcuz [1,n] // kyuki ho skta kisi
+                                         // ny isko -ve kar diya hoga
+            if (arr[index] < 0) {
+                // phele he kisi ny mark kar diya
+                cout << abs(index + 1) << " is a duplicate" << endl;
+                // ans.push_back(index+1);
+            } else {
+                arr[index] = -arr[index];
+            }
+        }
+
+        // if(ans.empty()){
+        //     cout<<"No duplicates"
+        //     // return {};
+        // }
+
+        // return ans;
+}
 
 ```
 
@@ -187,9 +210,46 @@ void moveNegative(int arr[], int n)
 
 ```
 
-
+# common element in three sorted array
 
 ```cpp
+vector<int> commonElement(int a[], int b[], int c[], int na, int nb, int nc)
+{
+    vector<int> ans;
+    int i = 0;
+    int j = 0;
+    int k = 0;
+
+    while (i < a.size() && j < b.size() && k < c.size())
+    {
+        if (a[i] == b[j] && b[j] == c[k])
+        {
+            if (ans.empty() || ans.back() != a[i])
+            {
+                ans.push_back(a[i]);
+            }
+            i++;
+            j++;
+            k++;
+        }
+        else if (a[i] < b[j])
+        {
+            i++;
+        }
+        else if (b[j] < c[k])
+        {
+            j++;
+        }
+        else
+        {
+            k++;
+        }
+    }
+    return ans;
+
+    // cout<<"completed"<<endl;
+}
+
 
 ```
 
