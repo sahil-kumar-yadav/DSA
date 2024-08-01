@@ -116,12 +116,49 @@ void ZFormPrint(int arr[4][4], int n, int m)
 }
 
 ```
+## Print a given matrix in zigzag form
 
 ```cpp
-
+Input : 
+        1    2   3   4   5
+        6    7   8   9   10
+        11   12  13  14  15
+        16  17  18  19   20
+Output :
+1 2 3 4 5 10 9 8 7 6 11 12 13 14 15 20 19 18 17 16 
 ```
 
 ```cpp
+void zigZagPrint(int arr[4][4], int n, int m)
+{
+    int i = 0, j = 0;
+
+    while (i < n)
+    {
+        if (i & 1)
+        {
+            // j odd // 1 3
+            j = m - 1;
+            while (j >= 0)
+            {
+                cout << arr[i][j] << " ";
+                j--;
+            }
+        }
+        else
+        {
+            // j is even 0 2 4
+            j = 0;
+            while (j < n)
+            {
+                cout << arr[i][j] << " ";
+                j++;
+            }
+        }
+        cout << endl;
+        i++;
+    }
+}
 
 ```
 
