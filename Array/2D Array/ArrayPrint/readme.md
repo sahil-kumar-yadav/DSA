@@ -162,5 +162,89 @@ void zigZagPrint(int arr[4][4], int n, int m)
 
 ```
 
+## Spiral Traversal of Matrix
+
+![spiral print](image.png)
+
+```cpp
+Input: matrix = {{1,    2,   3,   4},
+              {5,    6,   7,   8},
+              {9,   10,  11,  12},
+            {13,  14,  15,  16 }}
+Output: 1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10 
+```
+
+```cpp
+void SpiralPrint(int arr[5][5], int n, int m)
+{
+    int top = 0, bottom = n - 1;
+    int left = 0, right = m - 1;
+
+    // spriral movement  -->
+    // 1. go right (left to right)
+    // 2. go bottom (top to bottom)
+    // 3. go left (right to left)
+    // 4. go up (bottom to up)
+
+    while (top <= bottom && right >= left)
+    {
+
+        // 1. go right (left to right)
+        for (int i = left; i <= right; i++)
+        {
+            cout << arr[top][i] << " ";
+        }
+        top++;
+        // 2. go bottom (top to bottom)
+        for (int i = top; i <= bottom; i++)
+        {
+            cout << arr[i][right] << " ";
+        }
+        right--;
+        // 3. go left (right to left)
+        if (top <= bottom)
+        {
+            for (int i = right; i >= left; i--)
+            {
+                cout << arr[bottom][i] << " ";
+            }
+        }
+        bottom--;
+        // 4. go up (bottom to up)
+        if (left <= right)
+        {
+            for (int i = bottom; i >= top; i--)
+            {
+                cout << arr[i][left] << " ";
+            }
+        }
+        left++;
+    }
+}
+```
+
+```cpp
+
+```
+
+```cpp
+
+```
+
+```cpp
+
+```
+
+```cpp
+
+```
+
+```cpp
+
+```
+
+```cpp
+
+```
 
 
