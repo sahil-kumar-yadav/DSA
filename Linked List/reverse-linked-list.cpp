@@ -1,5 +1,5 @@
 #include <iostream>
-#include<unordered_map>
+#include <unordered_map>
 using namespace std;
 
 class Node
@@ -46,11 +46,26 @@ void printLL(Node *root)
     cout << "out" << endl;
 }
 
-void reverseLL(Node* &head){
-    if(!head) return;
+void reverseLL(Node *&head)
+{
+    if (!head)
+        return;
 
+    Node *prev = NULL;
+    Node *curr = head;
+    Node *Next = head->next;
 
-
+    while (Next)
+    {
+        curr->next = prev;
+        prev = curr;
+        curr = Next;
+        Next = Next->next;
+    }
+    // cout<<"prev "<<prev->data<<" curr "<<curr->data<<" next "<<Next->data<<" "<<endl;
+    curr->next = prev;
+    head = curr;
+    printLL(head);
 }
 
 int main()
@@ -60,16 +75,16 @@ int main()
     cout << "Enter data ";
     cin >> data;
     head->data = data;
-    cout << "before";
+    // cout << "before";
     while (data > 0)
     {
         cin >> data;
-        if(data > 0)
+        if (data > 0)
             insertAtTail(head, data);
     }
     printLL(head);
-
     reverseLL(head);
+    // printLL(head);
 
     return 0;
 }
