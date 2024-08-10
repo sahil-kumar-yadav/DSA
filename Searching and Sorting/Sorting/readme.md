@@ -130,3 +130,7 @@ void selectionSort(int arr[], int n)
 
 ```
 
+
+# Time Complexity all algorithms
+
+![alt text](image-5.png)
