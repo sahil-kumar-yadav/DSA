@@ -1,18 +1,42 @@
-vector<long long> nextLargerElement(vector<long long> arr, int n)
-{
-    // Your code here
+#include <iostream>
+#include <stack>
 
-    stack<long long> st;
-    vector<long long> ans(n, -1);
-    for (int i = 0; i < n; i++)
+using namespace std;
+
+void findNextGreater(int arr[], int n, int nextArr[])
+{
+    // {4, 12, 5, 3, 1, 2, 5, 3, 1, 2, 4, 6};
+    stack<int> st;
+    for (int i = 2 * n - 1; i >= 0; i--)
     {
-        while (!st.empty() && arr[i] > arr[st.top()])
+        while (!st.empty() && st.top() <= arr[i % n])
         {
-            long long index = st.top();
-            ans[index] = arr[i];
             st.pop();
         }
-        st.push(i);
+
+        if (i < n)
+        {
+            if (!st.empty())
+                nextArr[i] = st.top();
+        }
+        st.push(arr[i % n]);
     }
-    return ans;
+
+    cout << "Printing next Greater element array " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << nextArr[i] << " ";
+    }
+}
+
+int main()
+{
+    // int arr[] = {4, 12, 5, 3, 1, 2, 5, 3, 1, 2, 4, 6};
+    int arr[] = {7, 8, 1, 4};
+    int n = 4;
+    int nextArr[n] = {0};
+
+    findNextGreater(arr, n, nextArr);
+
+    return 0;
 }
