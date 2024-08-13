@@ -1,5 +1,7 @@
 # Char Array and String
 
+![alt text](image.png)
+
 # Reverse a String
 
 ```cpp
