@@ -4,22 +4,30 @@
 using namespace std;
 int main(){
     int n;
-    cout<<"Enter the number of nodes ";
+    cout<<"Enter number of nodes"<<endl;
     cin>>n;
-    vector<vector<int>>adj(n,vector<int>(n,0));
+    vector<vector<int>>adjMatrix(n,vector(n,0));
+
     int e;
-    cout<<"Enter the number of edges "<<endl;
+    cout<<"Enter the number of edges"<<endl;
     cin>>e;
+
+     bool directed = 0;
+    cout<<"Enter edges : ";
     for(int i = 0;i<e;i++){
         int u,v;
         cin>>u>>v;
-        adj[u][v] = 1;
+        adjMatrix[u-1][v-1] = 1;
+        if(!directed){
+            adjMatrix[v-1][u-1] = 1;
+        }
     }
 
-    // printing 
+    cout<<"Printing the Graph"<<endl;
+   
     for(int i = 0;i<n;i++){
         for(int j = 0;j<n;j++){
-            cout<<adj[i][j]<<" ";
+            cout<<adjMatrix[i][j]<<" ";
         }
         cout<<endl;
     }
