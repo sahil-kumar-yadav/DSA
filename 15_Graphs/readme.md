@@ -232,9 +232,22 @@ int main()
 }
 ```
 
-## 
+## DFS
 ```cpp
+void dfs(int src)
+{
 
+    if (!visited[src])
+    {
+        visited[src] = true;
+        cout << src << " ";
+        for (auto nbr : adjList[src])
+        {
+            dfs(nbr);
+            visited[nbr] = true;
+        }
+    }
+}
 ```
 
 ## 
