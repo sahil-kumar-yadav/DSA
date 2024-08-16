@@ -32,24 +32,26 @@ public:
         }
     }
 
-    void bfs(int src)
-    {
-        queue<int> q;
+    void bfs(int src){
+        cout<<"BfS traversal "<<endl;
+        // level order traversal
+        queue<int>q;
         q.push(src);
         visited[src] = true;
-
-        while (!q.empty())
-        {
+        
+        while(!q.empty()){
             int frontNode = q.front();
-            cout << frontNode << " ";
+            visited[frontNode] = true;
+            cout<<frontNode<<" ";
             q.pop();
-            for (auto nbr : adjList[frontNode])
-            {
-                if (!visited[nbr])
-                {
-                    q.push(nbr);
-                    visited[nbr] = true;
+
+            for(auto neighbour:adjList[frontNode]){
+                // sabko q my push kardo 
+                if(!visited[neighbour]){
+                    q.push(neighbour);
+                    // visited[neighbour] = true;
                 }
+                
             }
         }
     }
