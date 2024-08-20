@@ -42,8 +42,8 @@ void InOrderTraversal(Node *root){
         return ;
 
     // CLR
-    cout<<root->data<<" ";
     InOrderTraversal(root->left);
+    cout<<root->data<<" ";
     InOrderTraversal(root->right);
 }
 int main(){
