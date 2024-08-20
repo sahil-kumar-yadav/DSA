@@ -44,20 +44,6 @@ int main(){
 }
 ```
 
-# Pre Order Traversal
-
-```cpp
-void preOrderTraversal(Node *root){
-    if(!root)
-        return ;
-
-    // LCR
-    preOrderTraversal(root->left);
-    cout<<root->data<<" ";
-    preOrderTraversal(root->right);
-}
-```
-
 # In Order Traversal
 
 ```cpp
@@ -65,12 +51,28 @@ void InOrderTraversal(Node *root){
     if(!root)
         return ;
 
-    // CLR
-    cout<<root->data<<" ";
+    // LCR
     InOrderTraversal(root->left);
+    cout<<root->data<<" ";
     InOrderTraversal(root->right);
 }
 ```
+
+# Pre Order Traversal
+
+```cpp
+void preOrderTraversal(Node *root){
+    if(!root)
+        return ;
+
+    // CLR
+    cout<<root->data<<" ";
+    preOrderTraversal(root->left);
+    preOrderTraversal(root->right);
+}
+```
+
+
 
 # Post Order Traversal
 ```cpp
