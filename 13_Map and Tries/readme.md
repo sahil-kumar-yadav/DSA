@@ -10,6 +10,8 @@ Multimap is similar to map with an addition that multiple elements can have same
 
 
 
+# map<int,vector<int>>mp can be used as multimap;
+
 # Understanding `map` and `multimap` in C++
 
 In C++, `map` and `multimap` are two of the associative containers provided by the Standard Template Library (STL). Both are used to store key-value pairs, but they have some key differences. In this article, we'll explore how to use `map` and `multimap`, including their methods and some practical examples.
