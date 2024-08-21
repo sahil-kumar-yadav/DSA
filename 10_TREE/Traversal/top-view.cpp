@@ -1,6 +1,6 @@
 #include <iostream>
 #include <map>
-#include <set>
+#include <queue>
 
 using namespace std;
 class Node
@@ -53,19 +53,37 @@ void InOrderTraversal(Node *root)
     InOrderTraversal(root->right);
 }
 
-void topView(Node *root, int d, set<int, int> &st)
+void topView(Node *root, int d, map<int, int> &mp)
 {
     if (!root)
         return;
 
-    // entry karo
-    st.insert({d, root->data});
+    // level order traversal karna padega
+    queue<pair<Node *, int>> q;
 
-    // left jao
-    topView(root->left, d - 1, st);
+    q.push({root, 0});
 
-    // right jao
-    topView(root->right, d + 1, st);
+    while (!q.empty())
+    {
+        pair<Node *, int> temp = q.front();
+        Node *frontNode = temp.first;
+        int hd = temp.second;
+        q.pop();
+
+        if (mp.find(hd) == mp.end())
+        {
+            // entry nahi hai
+            mp[hd] = frontNode->data;
+        }
+        if (frontNode->left)
+        {
+            q.push({frontNode->left, hd - 1});
+        }
+        if (frontNode->right)
+        {
+            q.push({frontNode->right, hd + 1});
+        }
+    }
 }
 
 int main()
@@ -74,13 +92,14 @@ int main()
     Node *root = buildTree();
     cout << "Printing the Inorder of tree" << endl;
     InOrderTraversal(root);
-    set<pair<int, int>> st;
-    // topView(root, 0, st);
-    // cout << "Printing map " << endl;
-    // for (auto it : st)
-    // {
-    //     cout << it[0] << " -> ";
-    //     cout << it[1] << endl;
-    // }
+    map<int, int> mp;
+    topView(root, 0, mp);
+    cout<<endl;
+    cout << "Printing map " << endl;
+    for (auto it : mp)
+    {
+        cout << it.first << " -> ";
+        cout << it.second << endl;
+    }
     return 0;
 }
