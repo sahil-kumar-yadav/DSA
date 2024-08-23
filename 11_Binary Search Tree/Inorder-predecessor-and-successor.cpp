@@ -1,6 +1,7 @@
 #include <iostream>
 #include <queue>
 #include <vector>
+// #include<algorithm>
 
 using namespace std;
 
@@ -134,19 +135,40 @@ Node *findNode(Node *root, int target)
 
     if (target > root->data)
         return findNode(root->right, target);
-
-    return findNode(root->left, target);
+    else
+        return findNode(root->left, target);
 }
 
-pair<int, int> getMinMax(Node *root)
+int getJustSmaller(Node *root, int target)
 {
-
     if (!root)
-        return (INT_MIN, INT_MAX);
+        return INT_MIN;
 
-    pair<int, int> p = getMinMax(root->left);
+    if (root->data > target)
+    {
+        return getJustSmaller(root->left, target);
+    }
 
-    return {max(p.first, root->data), min(p.second, root->data)};
+    int left = getJustSmaller(root->left, target);
+    int right = getJustSmaller(root->right, target);
+    int val = root->data == target ? INT_MIN : root->data;
+    return max(val, max(left, right));
+}
+
+int getJustBigger(Node *root, int target)
+{
+    if (!root)
+        return INT_MAX;
+
+    if (root->data < target)
+    {
+        return getJustBigger(root->right, target);
+    }
+
+    int left = getJustBigger(root->left, target);
+    int right = getJustBigger(root->right, target);
+    int val = (root->data == target) ? INT_MAX : root->data;
+    return min(val, min(left, right));
 }
 
 void inOrderPreAndSucc_m2(Node *root, int node)
@@ -154,17 +176,14 @@ void inOrderPreAndSucc_m2(Node *root, int node)
     if (!root)
         return;
 
-    Node *mainNode = findNode(root, node);
-
     // predeccessor -> maximum element in left subtree
     // successor -> minimum element in right subtree
     // becuz  in left side all elements are in decreasing order and
     // in right side all elements are in increasing order
     // just see the example and you will understand it
 
-    pair<int, int> p = getMinMax(root->left);
-    int predeccsor = p.first;
-    int successor = p.second;
+    int predeccsor = getJustSmaller(root, node);
+    int successor = getJustBigger(root, node);
 
     cout << "predeccessor " << predeccsor << endl;
     cout << "successor " << successor << endl;
@@ -174,13 +193,14 @@ int main()
 {
     Node *root = NULL;
     // i/p : 10 5 20 2 8 4 6 11 25 17 15 -1
+    // in order 2 4 5 6 10 11 15 20 25
     cout << "Enter the data for Node " << endl;
     takeInput(root);
 
     cout << "printing the tree " << endl;
     LevelOrder(root);
     // inOrderPreAndSucc_m1(root, 11);
-    inOrderPreAndSucc_m2(root, 11); // 10 15
+    inOrderPreAndSucc_m2(root, 25); // 10 15
 
     return 0;
 }
