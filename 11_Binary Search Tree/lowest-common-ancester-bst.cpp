@@ -117,6 +117,7 @@ int main()
 {
     Node *root = NULL;
     // i/p : 100 50 20 70 80 129 140 160 -1
+    // 3,5,1,6,2,0,8,null,null,7,4
 
     cout << "Enter the data for Node " << endl;
     takeInput(root);
