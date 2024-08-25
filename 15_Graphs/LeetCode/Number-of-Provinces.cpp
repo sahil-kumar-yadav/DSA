@@ -25,7 +25,7 @@ void BFS(unordered_map<int, vector<int>> &adjList, int src, vector<bool> &visite
 }
 int findCircleNum(vector<vector<int>> &isConnected)
 {
-
+    // simple count disconnected components
     unordered_map<int, vector<int>> adjList;
 
     int v = isConnected.size();
