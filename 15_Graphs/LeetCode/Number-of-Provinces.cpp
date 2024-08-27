@@ -27,7 +27,7 @@ int findCircleNum(vector<vector<int>> &isConnected)
 {
     // simple count disconnected components
     unordered_map<int, vector<int>> adjList;
-
+    
     int v = isConnected.size();
 
     for (int i = 0; i < v; i++)
