@@ -23,25 +23,28 @@ bool checkValid(string s, string t)
     {
         tfreq[t[i] - 'a']++;
     }
-
-    for (int i = 0; i < s.length(); i++)
+    cout<<"Printing "<<endl;
+    for (int i = 0; i < 27; i++)
     {
+        cout<<sfreq[i]<<" ";
         if (sfreq[i] != tfreq[i])
-            return true;
+            return false;
     }
 
-    return false;
+    return true;
 }
 int main()
 {
-    string s = "anagram";
-    string t = "nagaram";
+    // string s = "anagram";
+    // string t = "nagaram";
+    string s = "nl";
+    string t = "cx";
 
     bool isValid = checkValid(s, t);
 
     if (isValid)
     {
-        cout << " valid anangram " << endl;
+        cout << "Valid anangram " << endl;
     }
     else
     {
