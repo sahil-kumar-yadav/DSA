@@ -37,6 +37,7 @@ void printArr(int arr[], int n)
     }
     cout << endl;
 }
+
 int main()
 {
     int arr[] = {2, -3, -1, 5, -4};
