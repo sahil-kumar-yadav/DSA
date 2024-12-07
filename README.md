@@ -200,5 +200,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any inquiries, feel free to reach out to me via GitHub or email at **[sahil.yadav.nit@example.com]**.
+For any inquiries, feel free to reach out to me via GitHub or email at **[sahil.yadav.nit@gmail.com]**.
 
